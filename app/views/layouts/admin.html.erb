@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="section">
+      <article class="message">
+        <div class="message-header">
+          <p>こんにちはAdmin</p>
+          <button class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+        bulmaをインストール
+        </div>
+      </article>
+    </div>
+    <%= yield %>
+  </body>
+</html>
