@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>アイキャッチ画像</th>
       <th>Title</th>
       <th>Slug</th>
       <th>Body</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
+        <td><%= image_tag article.eye_catching_image.variant(:thumb) %></td>
         <td><%= article.title %></td>
         <td><%= article.slug %></td>
         <td><%= article.body %></td>
