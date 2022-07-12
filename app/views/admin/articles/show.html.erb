@@ -12,7 +12,7 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @article.body %>
+  <%= md2html(@article.body).html_safe %>
 </p>
 
 <p>

@@ -18,7 +18,11 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= image_tag article.eye_catching_image.variant(:thumb) %></td>
+        <td>
+          <% if article.eye_catching_image.attached? %>
+            <%= image_tag article.eye_catching_image.variant(:thumb) %>
+          <% end %>
+        </td>
         <td><%= article.title %></td>
         <td><%= article.slug %></td>
         <td><%= article.body %></td>
