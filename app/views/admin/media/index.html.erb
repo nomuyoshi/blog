@@ -1,0 +1,9 @@
+
+<% @medias.each do |media| %>
+  <% binding.pry %>
+  <p>
+  id: <%= media.id %><br>
+  url: <%= image_tag url_for(media.variant(resize_to_limit: [100, 100], format: :jpeg)) %><br>
+  attached: <%= media.attachments.present? %>
+  </p>
+<% end %>
