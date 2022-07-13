@@ -1,7 +1,7 @@
 class Admin::MediaController < ApplicationController
   def index
     # TODO: all辞める, N+1対策
-    @medias = ActiveStorage::Blob.all
+    @attachments = ActiveStorage::Attachment.where.not(record_type: "ActiveStorage::VariantRecord")
   end
 
   def new
@@ -18,6 +18,9 @@ class Admin::MediaController < ApplicationController
   end
 
   def destroy
-    # TODO削除機能実装
+    attachment = ActiveStorage::Attachment.find(params[:id])
+    attachment.purge
+
+    redirect_to admin_media_path
   end
 end

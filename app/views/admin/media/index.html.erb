@@ -1,9 +1,15 @@
 
-<% @medias.each do |media| %>
-  <% binding.pry %>
+<% @attachments.each do |attachment| %>
   <p>
-  id: <%= media.id %><br>
-  url: <%= image_tag url_for(media.variant(resize_to_limit: [100, 100], format: :jpeg)) %><br>
-  attached: <%= media.attachments.present? %>
+  id: <%= attachment.id %><br>
+  <%= image_tag url_for(attachment), width: 200 %><br>
+  <%= button_tag 'copy', onclick: "copyToClipboard('#{url_for(attachment)}')" %>
+  <%= link_to '削除', admin_medium_path(attachment), method: :delete %>
   </p>
 <% end %>
+
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => { console.log('コピーしました') });
+  }
+</script>
