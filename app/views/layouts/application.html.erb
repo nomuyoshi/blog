@@ -11,17 +11,18 @@
   </head>
 
   <body>
-    <div class="section">
-      <article class="message">
-        <div class="message-header">
-          <p>こんにちは</p>
-          <button class="delete" aria-label="delete"></button>
+    <%= render "layouts/header" %>
+    <div class="columns">
+      <div class="column is-7 is-offset-1">
+        <main class="block mt-5">
+          <%= yield %>
+        </main>
+      </div>
+      <div class="column is-3">
+        <div class="mt-5">
+        サイドバー
         </div>
-        <div class="message-body">
-        bulmaをインストール
-        </div>
-      </article>
+      </div>
     </div>
-    <%= yield %>
   </body>
 </html>

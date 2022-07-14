@@ -1,28 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @article.slug %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @article.published %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
-  <%= @article.published_at %>
-</p>
-
-<%= link_to 'Back', articles_path %>
+<article>
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/">フリーランスエンジニア</a></li>
+      <li><a href="/">税金・確定申告</a></li>
+      <li></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <h2 class="title"><%= @article.title %></h2>
+    <%= @article.published_at %>
+    <%= md2html(@article.body).html_safe %>
+  </div>
+</article>
