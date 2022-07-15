@@ -9,18 +9,25 @@ class Admin::ArticlesController < AdminController
   end
 
   def new
+    @categories = Category.all
     @article = Article.new
   end
 
   def edit
+    @categories = Category.all
   end
 
   def create
     @article = Article.new(article_params)
+    if category_params[:category_ids].present?
+      categories = Category.where(id: category_params[:category_ids])
+      @article.categories = categories
+    end
 
     if @article.save
       redirect_to admin_article_url(@article), notice: "Article was successfully created."
     else
+      @categories = Category.all
       render :new, status: :unprocessable_entity
     end
   end
@@ -48,5 +55,9 @@ class Admin::ArticlesController < AdminController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :slug, :body, :published, :published_at, :eye_catching_image)
+    end
+
+    def category_params
+      params.require(:article).permit(category_ids: [])
     end
 end
