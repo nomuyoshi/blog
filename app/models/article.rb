@@ -8,4 +8,6 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true
+
+  scope :published, -> { where(published: true).order(published_at: :desc) }
 end
