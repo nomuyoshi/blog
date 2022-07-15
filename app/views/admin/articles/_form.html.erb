@@ -12,36 +12,54 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <label class="label">タイトル</label>
+    <div class="control">
+      <%= form.text_field :title, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
+    <label class="label">URL(slug)</label>
+    <div class="control">
+      <%= form.text_field :slug, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <label class="label">本文</label>
+    <div class="control">
+      <%= form.text_area :body, class: "textarea", rows: 15 %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :published %>
-    <%= form.check_box :published %>
+    <div class="control">
+      <label class="label">公開</label>
+      <%= form.check_box :published %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :eye_catching_image %>
-    <%= form.file_field :eye_catching_image %>
+    <div class="control">
+      <label class="label">アイキャッチ画像</label>
+      <%= form.file_field :eye_catching_image %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.collection_check_boxes :category_ids, categories, :id, :name, include_hidden: false %>
+    <label class="label">カテゴリ</label>
+    <ul>
+    <%= form.collection_check_boxes :category_ids, categories, :id, :name, include_hidden: false do |b| %>
+      <li>
+        <%= b.check_box %><%= b.text %>
+      </li>
+    <% end %>
+    </ul>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <div class="control">
+     <%= form.submit "保存", class: "button is-primary" %>
+    </div>
   </div>
 <% end %>
