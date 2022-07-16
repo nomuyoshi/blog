@@ -51,5 +51,7 @@ test:
 #
 production:
   <<: *default
-  database: blog_development
-  password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PRD_DB_NAME'] %>
+  host: <%= ENV['PRD_DB_HOST'] %>
+  username: <%= ENV['PRD_DB_USERNAME'] %>
+  password: <%= ENV['PRD_DB_PASSWORD'] %>
