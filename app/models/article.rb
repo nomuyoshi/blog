@@ -9,5 +9,5 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  scope :published, -> { where(published: true).order(published_at: :desc) }
+  scope :published, -> { where(published: true).order(updated_at: :desc) }
 end
