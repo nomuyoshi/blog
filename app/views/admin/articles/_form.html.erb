@@ -21,7 +21,21 @@
   <div class="field">
     <label class="label">URL(slug)</label>
     <div class="control">
-      <%= form.text_field :slug, class: "input" %>
+      https://free-engineer.life/<%= form.text_field :slug, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">キーワード（カンマ区切り）</label>
+    <div class="control">
+      <%= form.text_field :keywords, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">ディスクリプション</label>
+    <div class="control">
+      <%= form.text_area :description, class: "textarea", rows: 3 %>
     </div>
   </div>
 
