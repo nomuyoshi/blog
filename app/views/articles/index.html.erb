@@ -10,14 +10,18 @@
       </figure>
       <div class="media-content">
         <div class="content">
-          <h3 class="title mb-2"><%= link_to article.title, article_path(article) %></h3>
+          <% article.categories.each do |category| %>
+            <%# カテゴリ記事一覧ページへのリンクにする %>
+            <span class="tag is-rounded is-dark"><%= category.name %></span>
+          <% end %>
+          <h3 class="title my-2 is-5"><%= link_to article.title, article_path(article) %></h3>
           <div class="icon-text is-size-7">
             <span class="icon">
               <i class="fa-solid fa-arrows-rotate"></i>
             </span>
             <span><%= l(article.updated_at.to_date) %></span>
           </div>
-          <p>
+          <p class="is-size-7">
             <%= article.description %>
           </p>
         </div>

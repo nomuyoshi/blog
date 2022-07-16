@@ -2,7 +2,8 @@ class Admin::ArticlesController < AdminController
   before_action :set_article, only: %i[ show edit update destroy ]
 
   def index
-    @articles = Article.all
+    # TODO ページネーション
+    @articles = Article.includes(:categories).all
   end
 
   def show
