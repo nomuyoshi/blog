@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_16_040656) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_16_134946) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -67,13 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_040656) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_trees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "parent_id", null: false
-    t.integer "child_id", null: false
+  create_table "category_tree_paths", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "depth", null: false
-    t.index ["parent_id", "child_id"], name: "index_category_trees_on_parent_id_and_child_id", unique: true
+    t.index ["ancestor_id", "descendant_id"], name: "index_category_tree_paths_on_ancestor_id_and_descendant_id", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

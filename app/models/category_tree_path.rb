@@ -1,0 +1,2 @@
+class CategoryTreePath < ApplicationRecord
+end
