@@ -2,14 +2,26 @@
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
       <li><a href="/">HOME</a></li>
-      <li><a href="/">フリーランスエンジニア</a></li>
-      <li><a href="/">税金・確定申告</a></li>
-      <li></li>
+      <% @tree.each do |t| %>
+        <%# TODO: リンク先 %>
+        <li><a href="/"><%= t.name %></a></li>
+      <% end %>
     </ul>
   </nav>
   <div class="content">
-    <h1 class="title"><%= @article.title %></h1>
-    <%= l(@article.updated_at.to_date, format: :long) %>
-    <%= md2html(@article.body).html_safe %>
+    <% @categories.each do |category| %>
+      <span class="tag is-rounded is-dark"><%= category.name %></span>
+    <% end %>
+    <h1 class="title mt-4 mb-2"><%= @article.title %></h1>
+    <div class="icon-text is-size-7">
+      <span class="icon">
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </span>
+      <span><%= l(@article.updated_at.to_date) %></span>
+    </div>
+    <hr>
+    <div>
+      <%= md2html(@article.body).html_safe %>
+    </div>
   </div>
 </article>

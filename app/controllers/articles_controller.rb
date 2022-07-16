@@ -1,19 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show ]
-
-  # GET /articles or /articles.json
   def index
-    @articles = Article.published
+    @articles = Article.includes(:categories).published
   end
 
-  # GET /articles/1 or /articles/1.json
   def show
+    @article = Article.find(params[:id])
+    @categories = @article.categories
+    # 複数カテゴリある場合、lastの階層を使う
+    @tree = @categories.last.ancestors
   end
-
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 end

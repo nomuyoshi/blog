@@ -7,6 +7,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def show
+    @categories = @article.categories
   end
 
   def new
