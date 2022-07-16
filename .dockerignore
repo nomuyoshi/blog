@@ -1,0 +1,17 @@
+.DS_Store
+.envrc
+.envrc.example
+
+.git
+.gitignore
+.gitattributes
+.dockerignore
+README.md
+docker-compose.*
+Dockerfile
+log/*
+node_modules/*
+storage/*
+public/packs/*
+tmp/*
+vendor/*

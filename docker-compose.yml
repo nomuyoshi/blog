@@ -1,26 +1,18 @@
 version: "3.9"
 services:
-  web:
+  rails:
     build: .
     container_name: blog_web
-    command: ash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: ash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
     volumes:
       - .:/blog
     ports:
       - "3000:3000"
-    env_file:
-      - .env
-    depends_on:
-      - db
-  db:
-    image: mysql:8.0.24
-    container_name: blog_db
-    environment:
-      TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "3306:3306"
+  nginx:
+    image: nginx:1.22.0
     volumes:
-      - db:/var/lib/mysql
-volumes:
-  db:
+      - ./templates:/etc/nginx/templates
+    ports:
+      - "80:80"
+    depends_on:
+      - rails
