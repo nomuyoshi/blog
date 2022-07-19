@@ -1,0 +1,42 @@
+<id id="sidebar">
+  <aside class="mt-6">
+    <%# プロフィール %>
+    <div class="mb-5">
+      <p class="is-size-5 sidebar-title has-text-weight-bold">プロフィール</p>
+      <figure class="image is-128x128 container">
+        <%= image_pack_tag 'author.png', alt: "フリエン生活　管理人　ヨノ　アイコン", title: "フリエン生活　管理人　ヨノ　アイコン", class: "is-rounded" %>
+      </figure>
+      <p class="has-text-centered is-size-5 my-3"><strong>ヨノ</strong></p>
+      <p class="profile">
+        大学生のときに独学でプログラミングを学び5年間の会社員WEBエンジニアとして修行。
+        28歳でフリーランスになりました（90世代）。
+        Golang/Rails/React/Vue を中心にフリーのSESとして活動しています。最近はずっとGolang触っています。
+      </p>
+      <div class="has-text-centered">
+        <a class="button is-white is-large mx-3" href="https://twitter.com/yono_free">
+          <span class="icon has-text-info">
+            <i class="fab fa-twitter"></i>
+          </span>
+        </a>
+        <a class="button is-white is-large mx-3" href="https://free-engineer.life/">
+          <span class="icon has-text-dark">
+            <i class="fa-solid fa-house"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <%# 最新記事 %>
+    <div class="mb-5">
+      <p class="is-size-5 sidebar-title has-text-weight-bold">最新記事</p>
+      <ul class="menu-list">
+        <% @latest_articles.each do |article| %>
+          <li><%= link_to article.title, article_path(article) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%# カテゴリ %>
+    <%# アーカイブ %>
+    <div>
+  </aside>
+</id>
