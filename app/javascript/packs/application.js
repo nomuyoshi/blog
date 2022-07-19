@@ -10,10 +10,13 @@ import "channels"
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/brands';
+import "../stylesheets/application.scss";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
 document.addEventListener('turbolinks:load', () => {
   console.log('called');

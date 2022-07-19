@@ -1,0 +1,10 @@
+@import '~bulma/css/bulma.min';
+
+#article {
+  line-height: 1.8rem;
+
+  .notification, .message {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
