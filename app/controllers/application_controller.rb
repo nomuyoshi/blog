@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
 
   def sidebar
     @latest_articles = Article.published.limit(5)
+    @category_tree = Category.hash_tree
   end
 end
