@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
-bin/rails db:migrate
-bin/rails db:seed
+echo "start migrate"
 rm -f /myapp/tmp/pids/server.pid
+bundle exec rails db:migrate
+bundle exec rails db:seed
 exec "$@"
