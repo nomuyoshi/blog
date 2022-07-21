@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :articles, param: :slug, only: [:index, :show]
+#  resources :articles, param: :slug, only: [:index, :show]
+  get "/:slug", to: "articles#show", as: :article
   root to: "articles#index"
 
   resources :categories, param: :slug, only: [:show]

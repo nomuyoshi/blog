@@ -11,6 +11,7 @@ class Article < ApplicationRecord
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
 
+  # routesを:id->:nameにするために必要
   def to_param
     slug
   end
