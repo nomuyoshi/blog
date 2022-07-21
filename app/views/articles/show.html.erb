@@ -3,8 +3,7 @@
     <ul>
       <li><a href="/">HOME</a></li>
       <% @tree.each do |t| %>
-        <%# TODO: リンク先 %>
-        <li><a href="/"><%= t.name %></a></li>
+        <li><%= link_to t.name, category_path(t) %></li>
       <% end %>
     </ul>
   </nav>
