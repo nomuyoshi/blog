@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :articles, only: [:index, :show]
+  resources :articles, param: :slug, only: [:index, :show]
   root to: "articles#index"
 
-  resources :categories, only: [:show]
+  resources :categories, param: :slug, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :admin do

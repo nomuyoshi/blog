@@ -19,6 +19,11 @@ class Category < ApplicationRecord
     _hash_tree(roots, {})
   end
 
+  # routesを:id->:nameにするために必要
+  def to_param
+    slug
+  end
+
   private
 
   def self._hash_tree(categories, tree)

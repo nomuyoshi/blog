@@ -10,4 +10,8 @@ class Article < ApplicationRecord
   validates :slug, presence: true, uniqueness: true
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
+
+  def to_param
+    slug
+  end
 end
