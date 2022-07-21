@@ -1,5 +1,11 @@
 @import '~bulma/bulma.sass';
 
+.breadcrumb {
+  a {
+    color: $grey;
+  }
+}
+
 #article {
   line-height: 1.8rem;
 

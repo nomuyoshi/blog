@@ -1,5 +1,13 @@
 <%#TODO パンくず %>
-<%= @category.name %>
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">HOME</a></li>
+    <% @tree.each do |t| %>
+      <li><%= link_to t.name, category_path(t) %></li>
+    <% end %>
+  </ul>
+</nav>
+<h1 class="title"><%= @category.name %></h1>
 <div id="article-list">
   <%= render "articles/list", articles: @articles %>
 </div>
