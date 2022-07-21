@@ -3,7 +3,11 @@
     <figure class="media-left">
       <p class="image is-128x128">
         <%= link_to article_path(article) do %>
-          <img src="https://bulma.io/images/placeholders/128x128.png">
+          <% if article.eye_catching_image.attached? %>
+            <%= image_tag article.eye_catching_image.variant(:thumb)  %>
+          <% else %>
+            <%= image_pack_tag 'icon01.png' %>
+          <% end %>
         <% end %>
       </p>
     </figure>

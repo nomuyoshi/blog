@@ -13,6 +13,17 @@
   <body>
     <div class="columns">
       <div class="column is-10 is-offset-1">
+        <div>
+          <% if current_user %>
+            <%= link_to "Logout", admin_logout_path, method: :post %>
+          <% else %>
+            <%= link_to "Login", admin_login_path %>
+          <% end %>
+        </div>
+        <div>
+          <p id="notice"><%= flash[:notice] %></p>
+          <p id="alert"><%= flash[:alert] %></p>
+        </div>
         <%= yield %>
       </div>
     </div>

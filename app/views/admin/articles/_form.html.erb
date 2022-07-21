@@ -1,3 +1,5 @@
+
+<%= link_to 'メディア一覧', admin_media_path, target: "_blank" %>
 <%= form_with(model: [:admin, article]) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -77,3 +79,5 @@
     </div>
   </div>
 <% end %>
+
+<%= link_to 'メディア一覧', admin_media_path, target: "_blank" %>

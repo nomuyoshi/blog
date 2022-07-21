@@ -26,6 +26,10 @@ class Admin::ArticlesController < AdminController
       @article.categories = categories
     end
 
+    if article.published? && article.published_at.nil?
+      article.published_at = Time.current
+    end
+
     if @article.save
       redirect_to admin_article_url(@article), notice: "Article was successfully created."
     else
@@ -51,7 +55,7 @@ class Admin::ArticlesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.find_by(slug: params[:slug])
     end
 
     # Only allow a list of trusted parameters through.

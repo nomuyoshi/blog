@@ -2,13 +2,15 @@
 
 <h1>Articles</h1>
 
+<%= link_to '記事作成', new_admin_article_path %>
+<%= link_to 'メディア一覧', admin_media_path %>
+
 <table>
   <thead>
     <tr>
       <th>アイキャッチ画像</th>
       <th>Title</th>
       <th>Slug</th>
-      <th>Body</th>
       <th>Published</th>
       <th>Published at</th>
       <th colspan="3"></th>
@@ -23,14 +25,12 @@
             <%= image_tag article.eye_catching_image.variant(:thumb) %>
           <% end %>
         </td>
-        <td><%= article.title %></td>
+        <td><%= link_to article.title, edit_admin_article_path(article) %></td>
         <td><%= article.slug %></td>
-        <td><%= article.body %></td>
         <td><%= article.published %></td>
         <td><%= article.published_at %></td>
         <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,5 @@
 
 <br>
 
-<%= link_to 'New Article', new_admin_article_path %>
+<%= link_to '記事作成', new_admin_article_path %>
+<%= link_to 'メディア一覧', admin_media_path %>

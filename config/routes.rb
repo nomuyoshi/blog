@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :admin do
-    resources :articles
+    get 'login' => 'user_sessions#new', :as => :login
+    post 'login' => "user_sessions#create"
+    post 'logout' => 'user_sessions#destroy', :as => :logout
+    resources :articles, param: :slug
     resources :media, only: [:index, :new, :create, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
   end
 end

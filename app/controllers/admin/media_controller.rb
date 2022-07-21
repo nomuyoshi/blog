@@ -1,4 +1,4 @@
-class Admin::MediaController < ApplicationController
+class Admin::MediaController < AdminController
   def index
     # TODO: all辞める, N+1対策
     @attachments = ActiveStorage::Attachment.where.not(record_type: "ActiveStorage::VariantRecord")

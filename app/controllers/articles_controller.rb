@@ -6,7 +6,9 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find_by(slug: params[:slug])
     @categories = @article.categories
-    # 複数カテゴリある場合、lastの階層を使う
-    @tree = @categories.last.ancestors
+    @tree = []
+    if @categories.present?
+      @tree = @categories.last.ancestors # 複数カテゴリある場合、lastの階層を使う
+    end
   end
 end
