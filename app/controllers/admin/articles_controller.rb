@@ -26,8 +26,8 @@ class Admin::ArticlesController < AdminController
       @article.categories = categories
     end
 
-    if article.published? && article.published_at.nil?
-      article.published_at = Time.current
+    if @article.published? && @article.published_at.nil?
+      @article.published_at = Time.current
     end
 
     if @article.save
