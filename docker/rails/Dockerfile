@@ -1,6 +1,6 @@
-FROM ruby:alpine3.13
+FROM ruby:3.1.2-alpine
 RUN apk update \
-      && apk add --no-cache gcc make libc-dev g++ mariadb-dev tzdata nodejs~=14 yarn
+      && apk add --no-cache gcc make libc-dev g++ mariadb-dev tzdata nodejs~=16 yarn
 WORKDIR /myapp
 ENV RAILS_ENV=production
 COPY Gemfile /myapp/Gemfile
