@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:categories).published
+    @articles = Article.includes(:categories).published.page(params[:page])
   end
 
   def show

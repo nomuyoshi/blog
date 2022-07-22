@@ -11,6 +11,8 @@ class Article < ApplicationRecord
 
   scope :published, -> { where(published: true).order(updated_at: :desc) }
 
+  paginates_per 20
+
   # routesを:id->:nameにするために必要
   def to_param
     slug
